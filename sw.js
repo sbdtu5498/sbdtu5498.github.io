@@ -1,6 +1,6 @@
 // Service Worker for Sanskar Portfolio Site
-// Version 1.0.2
-const CACHE_NAME = 'sanskar-portfolio-v3';
+// Version 1.0.3
+const CACHE_NAME = 'sanskar-portfolio-v4';
 const RUNTIME_CACHE = 'runtime-cache-v1';
 
 // Assets to cache on install (critical resources)

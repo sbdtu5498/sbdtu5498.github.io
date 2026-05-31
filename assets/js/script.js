@@ -169,37 +169,6 @@ for (let i = 0; i < navigationLinks.length; i++) {
   });
 })();
 
-// Keep embedded artifacts rendered at a desktop-sized viewport on phones.
-(function syncArtifactPreviewScale() {
-  const previews = document.querySelectorAll(".artifact-preview");
-  if (!previews.length) return;
-
-  const setScale = function(preview) {
-    const frameWidth = Number.parseFloat(getComputedStyle(preview).getPropertyValue("--artifact-frame-width")) || 900;
-    const scale = Math.min(1, preview.clientWidth / frameWidth);
-    preview.style.setProperty("--artifact-scale", scale.toFixed(4));
-    preview.style.setProperty("--artifact-scale-inverse", (1 / scale).toFixed(4));
-  };
-
-  previews.forEach(setScale);
-
-  if ("ResizeObserver" in window) {
-    const observer = new ResizeObserver(function(entries) {
-      entries.forEach(function(entry) {
-        setScale(entry.target);
-      });
-    });
-
-    previews.forEach(function(preview) {
-      observer.observe(preview);
-    });
-  } else {
-    window.addEventListener("resize", function() {
-      previews.forEach(setScale);
-    });
-  }
-})();
-
 // --------------------------------------------------
 //  Service Worker Registration for Performance & Offline Support
 // --------------------------------------------------

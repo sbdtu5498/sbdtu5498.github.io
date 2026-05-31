@@ -955,10 +955,6 @@ main {
 }
 
 .artifact-preview {
-  --artifact-frame-width: 900px;
-  --artifact-frame-offset-y: 0px;
-  --artifact-scale: 1;
-  --artifact-scale-inverse: 1;
   width: 100%;
   height: 280px;
   border-radius: 12px 12px 0 0;
@@ -989,22 +985,11 @@ main {
 }
 
 @media (max-width: 767px) {
-  .artifact-preview {
-    height: 260px;
-  }
-
-  .artifact-preview--lower { --artifact-frame-offset-y: 205px; }
-  .artifact-preview--devlake { --artifact-frame-offset-y: 105px; }
-  .artifact-preview--blockchain-led { --artifact-frame-offset-y: 390px; }
-
-  .artifact-preview iframe,
   .artifact-preview--lower iframe,
   .artifact-preview--devlake iframe,
   .artifact-preview--blockchain-led iframe {
-    width: var(--artifact-frame-width);
-    height: calc((100% * var(--artifact-scale-inverse)) + var(--artifact-frame-offset-y));
-    transform: scale(var(--artifact-scale)) translateY(calc(-1 * var(--artifact-frame-offset-y)));
-    transform-origin: top left;
+    height: 100%;
+    transform: none;
   }
 }
 
